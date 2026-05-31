@@ -390,11 +390,11 @@ print(f"  Good for small documents like our tickets")
 # ============================================================================
 #
 # WHY CHROMA?
-#   ✓ Automatic persistence (data survives restart)
-#   ✓ Metadata storage and filtering
-#   ✓ Built-in embedding generation
-#   ✓ Collection management
-#   ✓ Production-ready features
+#    Automatic persistence (data survives restart)
+#    Metadata storage and filtering
+#    Built-in embedding generation
+#    Collection management
+#    Production-ready features
 #
 # THIS IS OUR RECOMMENDED APPROACH FOR THE WORKSHOP!
 # ============================================================================
