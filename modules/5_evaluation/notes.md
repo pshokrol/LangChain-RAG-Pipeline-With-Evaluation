@@ -13,16 +13,16 @@ Evaluation is critical for building reliable RAG systems. Without proper metrics
 - How do changes impact quality?
 
 ### Without Evaluation
-❌ Guessing which approach is better  
-❌ Deploying broken systems  
-❌ No way to measure improvement  
-❌ Can't justify technical decisions  
+ Guessing which approach is better  
+ Deploying broken systems  
+ No way to measure improvement  
+ Can't justify technical decisions  
 
 ### With Evaluation
-✅ Data-driven decisions  
-✅ Catch regressions early  
-✅ Optimize systematically  
-✅ Build confidence in system  
+ Data-driven decisions  
+ Catch regressions early  
+ Optimize systematically  
+ Build confidence in system  
 
 ## Two-Layer Evaluation Approach
 
@@ -215,15 +215,15 @@ How do you evaluate if an answer is "good"?
 **Idea:** Use a powerful LLM to evaluate answer quality.
 
 **Advantages:**
-✅ Captures semantic similarity  
-✅ Understands nuance  
-✅ Cost-effective vs human annotation  
-✅ Scales to large datasets  
+ Captures semantic similarity  
+ Understands nuance  
+ Cost-effective vs human annotation  
+ Scales to large datasets  
 
 **Disadvantages:**
-❌ LLM bias  
-❌ API costs  
-❌ Not always accurate  
+ LLM bias  
+ API costs  
+ Not always accurate  
 
 ### Groundedness (Faithfulness)
 
@@ -533,13 +533,13 @@ optimized       0.733    0.867    0.793    0.850    0.750
 
 Use these thresholds as a deployment gate. One RED metric blocks the release; any YELLOW triggers a mandatory review before deploying.
 
-| Metric | PASS (Green) | REVIEW (Yellow) | BLOCK (Red) |
-|--------|-------------|----------------|-------------|
-| Precision@3 | ≥ 0.80 | 0.70 – 0.79 | < 0.70 |
-| Recall@3 | ≥ 0.70 | 0.60 – 0.69 | < 0.60 |
-| F1@3 | ≥ 0.75 | 0.65 – 0.74 | < 0.65 |
-| Groundedness | ≥ 0.85 | 0.75 – 0.84 | < 0.75 |
-| Completeness | ≥ 0.75 | 0.65 – 0.74 | < 0.65 |
+| Metric      | PASS (Green) | REVIEW (Yellow) | BLOCK (Red) |
+|-------------|-------------|----------------  |-------------|
+| Precision@3 | ≥ 0.80      | 0.70 – 0.79      | < 0.70      |
+| Recall@3    | ≥ 0.70      | 0.60 – 0.69      | < 0.60      |
+| F1@3        | ≥ 0.75      | 0.65 – 0.74      | < 0.65      |
+| Groundedness| ≥ 0.85      | 0.75 – 0.84      | < 0.75      |
+| Completeness| ≥ 0.75      | 0.65 – 0.74      | < 0.65      |
 
 ```python
 def get_release_decision(metrics):
