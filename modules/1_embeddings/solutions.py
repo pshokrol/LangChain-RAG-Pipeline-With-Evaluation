@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Hour 1 Solutions: Embeddings & Similarity Search
+Part 1 Solutions: Embeddings & Similarity Search
 =================================================
 
 Solutions for all exercises in exercises.md
