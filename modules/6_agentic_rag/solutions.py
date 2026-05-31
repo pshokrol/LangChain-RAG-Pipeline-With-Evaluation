@@ -551,15 +551,15 @@ Key Takeaways:
 
 When to Use Agentic RAG:
 ────────────────────────
-✓ Complex multi-step queries
-✓ Multiple data sources/actions
-✓ Interactive conversations
-✓ Flexible query patterns
+ Complex multi-step queries
+ Multiple data sources/actions
+ Interactive conversations
+ Flexible query patterns
 
 When to Use Direct RAG:
 ───────────────────────
-✓ Simple single-step retrieval
-✓ Low latency requirements
-✓ Predictable behavior needed
-✓ Cost-sensitive applications
+ Simple single-step retrieval
+ Low latency requirements
+ Predictable behavior needed
+ Cost-sensitive applications
 """)
