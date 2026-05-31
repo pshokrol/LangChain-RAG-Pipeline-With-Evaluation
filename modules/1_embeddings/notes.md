@@ -188,40 +188,40 @@ plt.show()
 ```
 
 **Benefits:**
-- ✅ No information loss
-- ✅ Shows exact similarity values
-- ✅ Easy to interpret
-- ✅ Reveals clusters and patterns
+-  No information loss
+-  Shows exact similarity values
+-  Easy to interpret
+-  Reveals clusters and patterns
 
 ## Common Pitfalls
 
 ### 1. Comparing Different Models
-❌ **Wrong**: Compare embeddings from different models
+ **Wrong**: Compare embeddings from different models
 ```python
 embedding1 = get_embedding("text", model="text-embedding-3-small")
 embedding2 = get_embedding("text", model="text-embedding-3-large")
 similarity = cosine_similarity(embedding1, embedding2)  # Invalid!
 ```
 
-✅ **Right**: Use the same model for all embeddings in a project
+ **Right**: Use the same model for all embeddings in a project
 
 ### 2. Ignoring Token Limits
-❌ **Wrong**: Embed very long documents without splitting
+ **Wrong**: Embed very long documents without splitting
 ```python
 long_doc = "..." * 10000  # Way over token limit
 embedding = get_embedding(long_doc)  # API error!
 ```
 
-✅ **Right**: Split documents into chunks (covered in Module 2)
+ **Right**: Split documents into chunks (covered in Module 2)
 
 ### 3. Over-Embedding
-❌ **Wrong**: Embed every sentence separately
+ **Wrong**: Embed every sentence separately
 ```python
 for sentence in document.split('.'):
     embeddings.append(get_embedding(sentence))  # Expensive!
 ```
 
-✅ **Right**: Find optimal chunk size (200-500 tokens typically)
+ **Right**: Find optimal chunk size (200-500 tokens typically)
 
 ### 4. Not Handling Rate Limits
 ```python
