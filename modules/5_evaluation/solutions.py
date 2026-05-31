@@ -472,10 +472,10 @@ Key Takeaways:
    - More scalable than human evaluation
 
 4. Production Targets:
-   ✓ Precision@3 > 0.80
-   ✓ Recall@3 > 0.70
-   ✓ Groundedness > 0.80
-   ✓ Completeness > 0.75
+   - Precision@3 > 0.80
+   - Recall@3 > 0.70
+   - Groundedness > 0.80
+   - Completeness > 0.75
 
 5. Failure Analysis:
    - Identify weak areas for targeted improvement
