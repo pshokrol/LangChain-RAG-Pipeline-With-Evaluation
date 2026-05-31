@@ -22,11 +22,11 @@ THE 5 STRATEGIES WE'LL EXPLORE:
 WHEN TO USE WHAT:
 ━━━━━━━━━━━━━━━━━
                     Vector    Summary   Tree      Keyword   Hybrid
-Small dataset       ✓ Good    ✓ Good    Overkill  ✓ Good    Overkill
-Large dataset       ✓ Best    ✗ Slow    ✓ Good    ✓ Fast    ✓ Best
-Semantic queries    ✓ Best    ✓ Good    ✓ Good    ✗ Bad     ✓ Best
-Exact match (IDs)   ✗ Bad     ✗ Bad     ✗ Bad     ✓ Best    ✓ Good
-Hierarchical docs   ✗ Bad     ✓ OK      ✓ Best    ✗ Bad     ✓ Good
+Small dataset        Good     Good    Overkill   Good    Overkill
+Large dataset        Best     Slow     Good     Fast     Best
+Semantic queries     Best     Good     Good     Bad      Best
+Exact match (IDs)    Bad      Bad      Bad      Best     Good
+Hierarchical docs    Bad      OK       Best     Bad      Good
 
 FRAMEWORK: LlamaIndex
 ━━━━━━━━━━━━━━━━━━━━━
