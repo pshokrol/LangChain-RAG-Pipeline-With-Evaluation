@@ -204,7 +204,7 @@ Agent:
 
 ## Best Practices
 
-### ✅ DO:
+###  DO:
 
 1. **Write Clear Tool Descriptions**
    - Help the agent choose correctly
@@ -231,7 +231,7 @@ Agent:
    - Consider cost implications
    - Use cheaper models for agent reasoning
 
-### ❌ DON'T:
+###  DON'T:
 
 1. **Don't Make Tools Too Generic**
    - Bad: "search_tool" (search what?)
