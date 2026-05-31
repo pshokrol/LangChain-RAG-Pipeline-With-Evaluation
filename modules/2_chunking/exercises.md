@@ -1,4 +1,4 @@
-# Hour 2 Exercises: Chunking & Vector Stores
+# Part 2 Exercises: Chunking & Vector Stores
 
 > ✅ **Exercise style for this workshop:** keep each solution to a **small edit** (usually 3–15 lines) in existing files.
 
