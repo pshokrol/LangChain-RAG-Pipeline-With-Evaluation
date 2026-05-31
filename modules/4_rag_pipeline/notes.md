@@ -44,14 +44,14 @@ LLM: "TICK-001 reports users unable to log in after password reset.
 
 ```
 ┌────────────────────────────────────────────────────────────────────┐
-│                        RAG SYSTEM ARCHITECTURE                      │
+│                        RAG SYSTEM ARCHITECTURE                     │
 └────────────────────────────────────────────────────────────────────┘
 
 OFFLINE PHASE (One-time Setup)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
 │  Documents  │      │   Chunking  │      │  Embedding  │
-│             │─────▶│             │─────▶│   Model     │
+│             │────▶|             ─────▶ │   Model     │
 │ tickets.json│      │ Size: 500   │      │ OpenAI-3    │
 └─────────────┘      └─────────────┘      └──────┬──────┘
                                                   │
@@ -61,10 +61,10 @@ OFFLINE PHASE (One-time Setup)
                                           ┌───────────────┐
                                           │ Vector Store  │
                                           │               │
-                                          │ ┌───┐ ┌───┐  │
-                                          │ │Doc│ │Doc│  │
-                                          │ │ 1 │ │ 2 │  │
-                                          │ └───┘ └───┘  │
+                                          │ ┌───┐ ┌───┐   │
+                                          │ │Doc│ │Doc│   │
+                                          │ │ 1 │ │ 2 │   │
+                                          │ └───┘ └───┘   │
                                           └───────────────┘
 
 
@@ -86,14 +86,14 @@ User Query: "How do I fix authentication issues?"
 │         Vector Store Retrieval           │
 │                                          │
 │  Cosine Similarity:                      │
-│  ┌──────┐  Score: 0.92  ✓ Top-K        │
+│  ┌──────┐  Score: 0.92  ✓ Top-K         │
 │  │Doc 1 │ ───────────────────────────▶  │
 │  └──────┘                                │
-│  ┌──────┐  Score: 0.87  ✓ Top-K        │
+│  ┌──────┐  Score: 0.87  ✓ Top-K         │
 │  │Doc 2 │ ───────────────────────────▶  │
 │  └──────┘                                │
-│  ┌──────┐  Score: 0.45  ✗ Below thresh │
-│  │Doc 3 │                               │
+│  ┌──────┐  Score: 0.45  ✗ Below thresh  │
+│  │Doc 3 │                                │
 │  └──────┘                                │
 └────────┬─────────────────────────────────┘
          │
@@ -103,14 +103,14 @@ User Query: "How do I fix authentication issues?"
 │        Prompt Augmentation               │
 │                                          │
 │  Template:                               │
-│  ┌────────────────────────────────────┐ │
-│  │ Context: [Doc 1, Doc 2, Doc 3]    │ │
-│  │                                    │ │
-│  │ Question: {user_query}             │ │
-│  │                                    │ │
-│  │ Instructions: Answer based on     │ │
-│  │ context only...                    │ │
-│  └────────────────────────────────────┘ │
+│  ┌────────────────────────────────────┐  │
+│  │ Context: [Doc 1, Doc 2, Doc 3]     │  │
+│  │                                    │  │
+│  │ Question: {user_query}             │  │
+│  │                                    │  │
+│  │ Instructions: Answer based on      │  │
+│  │ context only...                    │  │
+│  └────────────────────────────────────┘  │
 └────────┬─────────────────────────────────┘
          │
          │ Step 4: Augmented Prompt
