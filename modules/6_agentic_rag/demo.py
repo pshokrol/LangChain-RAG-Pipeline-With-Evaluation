@@ -26,11 +26,11 @@ print("="*80)
 print("AGENTIC RAG: LangChain Agent with RAG Tools")
 print("="*80)
 print("\nThis demo shows how to build an intelligent agent that:")
-print("✓ Uses RAG retrieval as a tool (not the only approach)")
-print("✓ Decides when to use which tool based on the query")
-print("✓ Maintains conversation context across turns")
-print("✓ Performs multi-step reasoning")
-print("✓ Shows decision trace for tool selection")
+print(" Uses RAG retrieval as a tool (not the only approach)")
+print(" Decides when to use which tool based on the query")
+print(" Maintains conversation context across turns")
+print(" Performs multi-step reasoning")
+print(" Shows decision trace for tool selection")
 
 # ============================================================================
 # PART 1: Setup Agent with Tools
@@ -153,7 +153,7 @@ Remember: Your primary value is retrieving and applying solutions from past tick
     
     return "Maximum iterations reached. Could not complete the task."
 
-print("\n✓ Agent ready!")
+print("\n Agent ready!")
 
 # ============================================================================
 # PART 2: Simple Query - RAG Tool Selection
@@ -344,37 +344,37 @@ print("KEY LEARNINGS: Agentic RAG")
 print("="*80)
 
 print("""
-✅ Agent Architecture Benefits:
+ Agent Architecture Benefits:
    • Tools give the agent structured capabilities
    • Agent decides WHEN and WHICH tool to use
    • More flexible than hardcoded RAG pipelines
    • Can combine multiple tools for complex queries
 
-✅ Tool Design Best Practices:
+ Tool Design Best Practices:
    • Clear, specific tool descriptions help agent selection
    • Each tool should have a single, well-defined purpose
    • Return formatted strings for easy agent consumption
    • Include error handling and helpful messages
 
-✅ Memory Management:
+ Memory Management:
    • Conversation history maintained by passing messages
    • Enables follow-up questions without re-explaining
    • Be mindful of token limits with long conversations
    • Consider summarization for longer chats
 
-✅ When to Use Agentic RAG:
+ When to Use Agentic RAG:
    • Multi-step queries requiring reasoning
    • Need to combine retrieval with other operations
    • Interactive/conversational applications
    • When users need flexible query patterns
 
-✅ When Direct RAG is Better:
+ When Direct RAG is Better:
    • Simple, single-step retrieval needs
    • Lower latency requirements
    • More predictable/controllable behavior
    • Cost-sensitive applications (agents use more tokens)
 
-🎯 Next Steps:
+ Next Steps:
    1. Try different queries in the exercises
    2. Add custom tools (e.g., ticket creation)
    3. Experiment with different agent prompts
