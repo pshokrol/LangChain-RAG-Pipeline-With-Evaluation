@@ -40,7 +40,7 @@ The term "indexing" is overloaded in the RAG ecosystem. Before proceeding, let's
 | **Focus** | Knowledge organization | Search performance |
 | **Who controls it** | You (the developer) | The vector DB |
 | **Impact** | What gets retrieved | How fast it's retrieved |
-| **This module** | ✅ **Primary focus** | Mentioned but abstracted |
+| **This module** |  **Primary focus** | Mentioned but abstracted |
 
 > **This module focuses on RAG-level knowledge indexing** — the higher-level abstraction that determines *what* your system can retrieve. DB-level indexing (HNSW, IVF, etc.) is handled by your vector database and is largely a performance optimization you configure, not design.
 
@@ -245,15 +245,15 @@ response = query_engine.query("How do I reset my password?")
 ```
 
 **Pros:**
-- ✅ Simple and effective
-- ✅ Fast with modern vector DBs
-- ✅ Works for 90% of use cases
-- ✅ Easy to scale
+-  Simple and effective
+-  Fast with modern vector DBs
+-  Works for 90% of use cases
+-  Easy to scale
 
 **Cons:**
-- ❌ No hierarchical structure
-- ❌ May return fragmented chunks
-- ❌ All chunks treated equally
+-  No hierarchical structure
+-  May return fragmented chunks
+-  All chunks treated equally
 
 **Best For:**
 - General purpose RAG
@@ -332,7 +332,7 @@ Each check = LLM call or LLM attention
 
 10 documents:   ~2 seconds
 100 documents:  ~20 seconds
-1000 documents: ~200 seconds ⚠️ Too slow!
+1000 documents: ~200 seconds  Too slow!
 ```
 
 **Response Modes:**
@@ -364,14 +364,14 @@ response = query_engine.query("What are common auth issues?")
 ```
 
 **Pros:**
-- ✅ Returns full documents (no fragmentation)
-- ✅ Good for high-level queries
-- ✅ No embeddings needed (optional)
+-  Returns full documents (no fragmentation)
+-  Good for high-level queries
+-  No embeddings needed (optional)
 
 **Cons:**
-- ❌ Slow for large datasets (O(n) scan)
-- ❌ No semantic similarity
-- ❌ LLM must process all docs
+-  Slow for large datasets (O(n) scan)
+-  No semantic similarity
+-  LLM must process all docs
 
 **Best For:**
 - Small document collections (<100 docs)
@@ -385,22 +385,22 @@ response = query_engine.query("What are common auth issues?")
 
 **Real-World Use Cases:**
 ```
-✓ Executive report summarization
+ Executive report summarization
   Query: "Summarize all customer complaints this week"
   Dataset: 20 complaint emails
   Returns: Comprehensive summary across all docs
 
-✓ Meeting notes analysis
+ Meeting notes analysis
   Query: "What decisions were made about the budget?"
   Dataset: 15 meeting transcripts
   Returns: Full context from relevant meetings
 
-✓ Email thread understanding
+ Email thread understanding
   Query: "What was the final agreement?"
   Dataset: 30 emails in a negotiation thread
   Returns: Complete thread context
 
-✓ Small knowledge base Q&A
+ Small knowledge base Q&A
   Query: "What are our vacation policies?"
   Dataset: 25 HR policy documents
   Returns: Full policy documents, not fragments
@@ -573,12 +573,12 @@ Scenario: You index 3 separate documents concatenated together
   Doc B - Chunk 3: "Refund policy"
 
 With num_children=2:
-  Group 1: [Chunk 0, Chunk 1]  → Summary: "Authentication topics" ✅ coherent
-  Group 2: [Chunk 2, Chunk 3]  → Summary: "Billing topics"       ✅ coherent
+  Group 1: [Chunk 0, Chunk 1]  → Summary: "Authentication topics"  coherent
+  Group 2: [Chunk 2, Chunk 3]  → Summary: "Billing topics"        coherent
 
 With num_children=4:
   Group 1: [Chunk 0, Chunk 1, Chunk 2, Chunk 3]
-           → Summary: "Auth and billing topics" ⚠️ mixed, coarser summary
+           → Summary: "Auth and billing topics" -> mixed, coarser summary
 ```
 
 **The LLM summary layer compensates:** Even when unrelated chunks land in the same group, the LLM writes a summary that captures what's in the group. At query time, the summary still mentions both topics, so the right branch can still be found. It's less precise, but it doesn't break.
@@ -945,7 +945,7 @@ Step 2: B1 has 3 leaves → LLM scores all 3:
         Pick top 1 → return L1
 
 Result: Only answers the "login failing" part
-        ❌ Completely misses billing/invoice info
+         Completely misses billing/invoice info
 
 LLM calls during retrieval: 2 (one per level)
 Leaves retrieved: 1
@@ -973,7 +973,7 @@ Step 2b: B2 has 3 leaves → LLM scores all 3:
         Pick top 2 → return L4, L5
 
 Result: Answers BOTH login AND invoice questions
-        ✅ Covers both branches of the query
+         Covers both branches of the query
 
 LLM calls during retrieval: 3 (1 at root + 2 at branch level)
 Leaves retrieved: 4
@@ -989,7 +989,7 @@ Step 2: Each branch → pick top 3 leaves (= all leaves)
         → L1-L9 (all 9 leaves)
 
 Result: Maximum recall, but retrieves everything
-        ⚠️ Approaches Summary Index behavior (reads all docs)
+         Approaches Summary Index behavior (reads all docs)
 
 LLM calls during retrieval: 4 (1 + 3)
 Leaves retrieved: 9
@@ -1035,15 +1035,15 @@ response = query_engine.query("Explain force and electromagnetic induction")
 ```
 
 **Pros:**
-- ✅ Efficient for large collections
-- ✅ Natural hierarchical exploration
-- ✅ Good for broad → specific queries
-- ✅ Preserves relationships
+-  Efficient for large collections
+-  Natural hierarchical exploration
+-  Good for broad → specific queries
+-  Preserves relationships
 
 **Cons:**
-- ❌ Complex to build and maintain
-- ❌ Requires good document structure
-- ❌ Slower query time vs flat index
+-  Complex to build and maintain
+-  Requires good document structure
+-  Slower query time vs flat index
 
 **Best For:**
 - Large document collections (1000+)
@@ -1060,22 +1060,22 @@ response = query_engine.query("Explain force and electromagnetic induction")
 **Real-World Use Cases:**
 
 ```
-✓ Technical manuals and documentation
+ Technical manuals and documentation
   Query: "Explain section 4.2 of the compliance policy"
   Structure: Manual → Chapters → Sections → Paragraphs
   Traverses: Root → Compliance Chapter → Section 4 → 4.2
 
-✓ Legal document analysis
+ Legal document analysis
   Query: "What are the liability clauses?"
   Structure: Contract → Articles → Clauses → Sub-clauses
   Traverses: Root → Liability Article → Specific clauses
 
-✓ Enterprise wiki search
+ Enterprise wiki search
   Query: "How does the authentication system work?"
   Structure: Wiki → Categories → Pages → Sections
   Traverses: Root → Engineering → Auth System → Details
 
-✓ Textbook Q&A
+ Textbook Q&A
   Query: "What is Newton's Second Law?"
   Structure: Textbook → Chapters → Sections → Paragraphs
   Traverses: Root → Physics → Mechanics → Newton's Laws
@@ -1152,16 +1152,16 @@ response = query_engine.query("password authentication")
 ```
 
 **Pros:**
-- ✅ No embeddings needed (faster, cheaper)
-- ✅ Good for keyword-specific queries
-- ✅ Exact term matching
-- ✅ Works offline (no API calls)
+-  No embeddings needed (faster, cheaper)
+-  Good for keyword-specific queries
+-  Exact term matching
+-  Works offline (no API calls)
 
 **Cons:**
-- ❌ No semantic understanding
-- ❌ Misses synonyms ("car" != "vehicle")
-- ❌ Poor for natural language queries
-- ❌ Sensitive to wording
+-  No semantic understanding
+-  Misses synonyms ("car" != "vehicle")
+-  Poor for natural language queries
+-  Sensitive to wording
 
 **Best For:**
 - Code search (function names, error codes)
@@ -1177,23 +1177,23 @@ response = query_engine.query("password authentication")
 
 **Real-World Use Cases:**
 ```
-✓ Ticket/Issue ID lookup
+ Ticket/Issue ID lookup
   Query: "TICK-001" or "JIRA-4532"
   Returns: Exact ticket with that ID
 
-✓ Error code search
+ Error code search
   Query: "HTTP 503 error" or "NullPointerException"
   Returns: Docs containing those exact error codes
 
-✓ Code search
+ Code search
   Query: "function parseJSON" or "class UserAuthentication"
   Returns: Files containing those function/class names
 
-✓ API endpoint lookup
+ API endpoint lookup
   Query: "/api/v2/users/profile"
   Returns: Documentation for that exact endpoint
 
-✓ Product SKU search
+ Product SKU search
   Query: "SKU-78432-BLK"
   Returns: Product catalog entry
 
@@ -1313,25 +1313,25 @@ hybrid_results = reciprocal_rank_fusion([vector_nodes, keyword_nodes])
 
 **Real-World Use Cases:**
 ```
-✓ Production customer support
+ Production customer support
   Query: "auth error TICK-001"
   Vector finds: Related auth troubleshooting articles
   Keyword finds: Exact ticket TICK-001
   Combined: Both the specific ticket AND related solutions
 
-✓ Enterprise search
+ Enterprise search
   Query: "budget meeting Q3 2024"
   Vector finds: Semantically related budget discussions
   Keyword finds: Docs with exact "Q3 2024" mention
   Combined: Comprehensive results across both
 
-✓ E-commerce product search
+ E-commerce product search
   Query: "comfortable running shoes size 10"
   Vector finds: Semantically similar athletic footwear
   Keyword finds: Products with exact "size 10" in specs
   Combined: Relevant products in the right size
 
-✓ Medical/Legal search (high stakes)
+ Medical/Legal search (high stakes)
   Query: "diabetes medication interactions"
   Vector finds: Related drug interaction articles
   Keyword finds: Exact drug names mentioned
@@ -1367,11 +1367,11 @@ else:
 
 | Strategy | Speed   | Accuracy | Scale     | Semantic | Exact Match | Cost   |
 |----------|---------|----------|-----------|----------|-------------|--------|
-| Vector   | Fast    | High     | Excellent | ✅       | ❌         | Medium |
-| Summary  | Slow    | Medium   | Poor      | Partial   | ❌         | Low    |
-| Tree     | Medium  | High     | Excellent | ✅       | ❌          | Medium |
-| Keyword  | Fast    | Medium   | Good      | ❌       | ✅          | Low    |
-| Hybrid   | Slow    | Highest  | Good      | ✅       | ✅          | High   |
+| Vector   | Fast    | High     | Excellent | v       | x         | Medium |
+| Summary  | Slow    | Medium   | Poor      | Partial   | x         | Low    |
+| Tree     | Medium  | High     | Excellent | v       | x          | Medium |
+| Keyword  | Fast    | Medium   | Good      | x       | v          | Low    |
+| Hybrid   | Slow    | Highest  | Good      | v       | v          | High   |
 
 ## Choosing the Right Strategy
 
@@ -1647,20 +1647,20 @@ query_engine.query("test")
 ## Common Pitfalls
 
 ### 1. Wrong Index for Use Case
-❌ Using Summary Index for 1000+ documents (too slow)
-✅ Use Tree or Vector Index for scale
+x Using Summary Index for 1000+ documents (too slow)
+v Use Tree or Vector Index for scale
 
 ### 2. No Metadata
-❌ Storing raw text only
-✅ Add metadata for filtering and debugging
+x Storing raw text only
+v Add metadata for filtering and debugging
 
 ### 3. Over-Engineering
-❌ Starting with complex hybrid system
-✅ Begin with Vector Index, optimize as needed
+x Starting with complex hybrid system
+v Begin with Vector Index, optimize as needed
 
 ### 4. Ignoring Evaluation
-❌ Deploying without testing
-✅ Create test queries, measure accuracy
+x Deploying without testing
+v Create test queries, measure accuracy
 
 ## References
 
