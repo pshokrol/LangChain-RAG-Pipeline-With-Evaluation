@@ -156,9 +156,9 @@ hybrid_retrieval:
 ```
 ┌─────────────────────────────────────────────────────┐
 │              FLAT VECTOR STORAGE                    │
-│  [Doc1: [0.23, 0.45, ...]]                         │
-│  [Doc2: [0.87, 0.34, ...]]                         │
-│  [Doc3: [0.56, 0.78, ...]]                         │
+│  [Doc1: [0.23, 0.45, ...]]                          │
+│  [Doc2: [0.87, 0.34, ...]]                          │
+│  [Doc3: [0.56, 0.78, ...]]                          │
 │  ...                                                │
 └─────────────────────────────────────────────────────┘
                         ▲
@@ -1288,16 +1288,16 @@ hybrid_results = reciprocal_rank_fusion([vector_nodes, keyword_nodes])
 ```
 
 **Pros:**
-- ✅ Best of both worlds
-- ✅ More robust to query variations
-- ✅ Higher accuracy overall
-- ✅ Reduces false negatives
+-  Best of both worlds
+-  More robust to query variations
+-  Higher accuracy overall
+-  Reduces false negatives
 
 **Cons:**
-- ❌ Slower (runs multiple searches)
-- ❌ More complex implementation
-- ❌ Requires result fusion logic
-- ❌ Higher computational cost
+-  Slower (runs multiple searches)
+-  More complex implementation
+-  Requires result fusion logic
+-  Higher computational cost
 
 **Best For:**
 - Production systems
@@ -1365,13 +1365,13 @@ else:
 
 ## Comparison Matrix
 
-| Strategy | Speed | Accuracy | Scale | Semantic | Exact Match | Cost |
-|----------|-------|----------|-------|----------|-------------|------|
-| Vector | Fast | High | Excellent | ✅ | ❌ | Medium |
-| Summary | Slow | Medium | Poor | Partial | ❌ | Low |
-| Tree | Medium | High | Excellent | ✅ | ❌ | Medium |
-| Keyword | Fast | Medium | Good | ❌ | ✅ | Low |
-| Hybrid | Slow | Highest | Good | ✅ | ✅ | High |
+| Strategy | Speed   | Accuracy | Scale     | Semantic | Exact Match | Cost   |
+|----------|---------|----------|-----------|----------|-------------|--------|
+| Vector   | Fast    | High     | Excellent | ✅       | ❌         | Medium |
+| Summary  | Slow    | Medium   | Poor      | Partial   | ❌         | Low    |
+| Tree     | Medium  | High     | Excellent | ✅       | ❌          | Medium |
+| Keyword  | Fast    | Medium   | Good      | ❌       | ✅          | Low    |
+| Hybrid   | Slow    | Highest  | Good      | ✅       | ✅          | High   |
 
 ## Choosing the Right Strategy
 
