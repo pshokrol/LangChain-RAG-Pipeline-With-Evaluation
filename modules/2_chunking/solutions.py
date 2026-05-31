@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Hour 2 Solutions: Chunking & Vector Stores
+Part 2 Solutions: Chunking & Vector Stores
 ==========================================
 
 Solutions for all exercises in exercises.md
