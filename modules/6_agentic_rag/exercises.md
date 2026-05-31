@@ -263,15 +263,15 @@ Goal: observe behavior quickly without writing a full evaluator.
 
 ## When to Use Agentic RAG
 
-| Use Case | Direct RAG | Agentic RAG |
-|----------|-----------|-------------|
-| Simple Q&A | ✅ | ❌ |
-| Low latency needed | ✅ | ❌ |
-| Complex multi-step queries | ❌ | ✅ |
-| Multiple data sources | ❌ | ✅ |
-| Interactive conversation | ❌ | ✅ |
-| Predictable behavior | ✅ | ❌ |
-| Cost-sensitive | ✅ | ❌ |
+| Use Case                   | Direct RAG | Agentic RAG |
+|----------------------------|------------|-------------|
+| Simple Q&A                 | v          | x           |
+| Low latency needed         | v          | x           |
+| Complex multi-step queries | x          | v           |
+| Multiple data sources      | x          | v           |
+| Interactive conversation   | x          | v           |
+| Predictable behavior       | v          | x           |
+| Cost-sensitive             | v          | x           
 
 ---
 
