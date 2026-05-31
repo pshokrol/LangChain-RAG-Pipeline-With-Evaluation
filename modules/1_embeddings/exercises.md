@@ -1,4 +1,4 @@
-# Hour 1 Exercises: Embeddings & Similarity Search
+# Part 1 Exercises: Embeddings & Similarity Search
 
 > ✅ **Exercise style for this workshop:** keep each solution to a **small edit** (usually 3–15 lines) in existing files.
 
