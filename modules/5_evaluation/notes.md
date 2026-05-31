@@ -730,42 +730,42 @@ def check_thresholds(metrics):
 ## Best Practices
 
 ### 1. Start Small
-✅ Begin with 15-20 evaluation queries  
-✅ Expand to 50-100 for production  
-✅ Update regularly with new query types  
+ Begin with 15-20 evaluation queries  
+ Expand to 50-100 for production  
+ Update regularly with new query types  
 
 ### 2. Balanced Dataset
-✅ Mix of easy and hard questions  
-✅ Cover all categories/topics  
-✅ Include edge cases  
+ Mix of easy and hard questions  
+ Cover all categories/topics  
+ Include edge cases  
 
 ### 3. Multiple Annotators
-✅ 2-3 people for ground truth  
-✅ Resolve disagreements  
-✅ Measure inter-rater agreement  
+ 2-3 people for ground truth  
+ Resolve disagreements  
+ Measure inter-rater agreement  
 
 ### 4. Iterate
-✅ Evaluate → Analyze → Improve → Repeat  
-✅ Track changes over time  
-✅ A/B test improvements  
+ Evaluate → Analyze → Improve → Repeat  
+ Track changes over time  
+ A/B test improvements  
 
 ## Common Pitfalls
 
 ### 1. No Ground Truth
-❌ Testing without labeled data  
-✅ Create evaluation dataset first  
+x Testing without labeled data  
+v Create evaluation dataset first  
 
 ### 2. Overfitting to Eval Set
-❌ Optimizing for specific queries  
-✅ Keep eval set diverse and representative  
+x Optimizing for specific queries  
+v Keep eval set diverse and representative  
 
 ### 3. Only Testing Generation
-❌ Ignoring retrieval quality  
-✅ Evaluate both layers separately  
+x Ignoring retrieval quality  
+v Evaluate both layers separately  
 
 ### 4. Trusting LLM-as-Judge Blindly
-❌ Accepting scores without validation  
-✅ Spot-check with human evaluation  
+x Accepting scores without validation  
+v Spot-check with human evaluation  
 
 ## Tools and Frameworks
 
