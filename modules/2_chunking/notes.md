@@ -37,14 +37,14 @@ def fixed_size_chunking(text, chunk_size=500, overlap=50):
 ```
 
 **Pros:**
-- ✅ Simple to implement
-- ✅ Predictable chunk sizes
-- ✅ Fast processing
+-  Simple to implement
+-  Predictable chunk sizes
+-  Fast processing
 
 **Cons:**
-- ❌ May split sentences mid-word
-- ❌ Ignores document structure
-- ❌ Can break semantic units
+-  May split sentences mid-word
+-  Ignores document structure
+-  Can break semantic units
 
 **Best For:** Unstructured text, quick prototypes
 
@@ -77,13 +77,13 @@ chunks = splitter.split_text(text)
 5. Last resort: Character-by-character
 
 **Pros:**
-- ✅ Preserves natural boundaries
-- ✅ Maintains semantic coherence
-- ✅ Works well for most content
+-  Preserves natural boundaries
+-  Maintains semantic coherence
+-  Works well for most content
 
 **Cons:**
-- ❌ May still break complex structures
-- ❌ Requires tuning for specific formats
+-  May still break complex structures
+-  Requires tuning for specific formats
 
 **Best For:** General purpose text (articles, documentation, emails)
 
@@ -115,14 +115,14 @@ def semantic_chunking(text, similarity_threshold=0.7):
 ```
 
 **Pros:**
-- ✅ Preserves semantic coherence
-- ✅ Natural topic boundaries
-- ✅ Adapts to content
+-  Preserves semantic coherence
+-  Natural topic boundaries
+-  Adapts to content
 
 **Cons:**
-- ❌ Expensive (requires embeddings)
-- ❌ Variable chunk sizes
-- ❌ Slower processing
+-  Expensive (requires embeddings)
+-  Variable chunk sizes
+-  Slower processing
 
 **Best For:** High-quality retrieval where accuracy is critical
 
@@ -174,13 +174,13 @@ chunks = python_splitter.split_text(code)
 ```
 
 **Pros:**
-- ✅ Preserves hierarchical context
-- ✅ Maintains metadata (headers, tags)
-- ✅ Better for structured documents
+-  Preserves hierarchical context
+-  Maintains metadata (headers, tags)
+-  Better for structured documents
 
 **Cons:**
-- ❌ Requires format-specific logic
-- ❌ May create very large or small chunks
+-  Requires format-specific logic
+-  May create very large or small chunks
 
 **Best For:** Documentation, wikis, code repositories
 
@@ -209,13 +209,13 @@ def create_sentence_windows(text, window_size=3):
 ```
 
 **Pros:**
-- ✅ Precise retrieval
-- ✅ Rich context for generation
-- ✅ Reduces hallucinations
+-  Precise retrieval
+-  Rich context for generation
+-  Reduces hallucinations
 
 **Cons:**
-- ❌ More storage required
-- ❌ Complex implementation
+-  More storage required
+-  Complex implementation
 
 **Best For:** Q&A systems, citation-heavy applications
 
@@ -247,13 +247,13 @@ def create_parent_child_chunks(documents):
 ```
 
 **Pros:**
-- ✅ Precise search + complete context
-- ✅ Reduces fragmentation
-- ✅ Better answer quality
+-  Precise search + complete context
+-  Reduces fragmentation
+-  Better answer quality
 
 **Cons:**
-- ❌ Increased storage (2x chunks)
-- ❌ More complex retrieval logic
+-  Increased storage (2x chunks)
+-  More complex retrieval logic
 
 **Best For:** Long documents (reports, manuals, legal docs)
 
@@ -301,12 +301,12 @@ overlap = 100  # 20% of 500
 
 ### Token vs Character Counting
 
-❌ **Wrong**: Count by characters
+ **Wrong**: Count by characters
 ```python
 chunk_size = 500  # characters - misleading!
 ```
 
-✅ **Right**: Count by tokens
+ **Right**: Count by tokens
 ```python
 import tiktoken
 
@@ -562,23 +562,23 @@ def handle_special_content(text):
 ## Common Pitfalls
 
 ### 1. Ignoring Document Structure
-❌ **Wrong**: Treat all text as plain text
+ **Wrong**: Treat all text as plain text
 ```python
 chunks = text.split('\n\n')  # Loses headers, structure
 ```
 
-✅ **Right**: Preserve hierarchy
+ **Right**: Preserve hierarchy
 ```python
 chunks = markdown_splitter.split_text(text)  # Keeps headers
 ```
 
 ### 2. Too Small or Too Large
-❌ **Wrong**: One-size-fits-all
+ **Wrong**: One-size-fits-all
 ```python
 chunk_size = 100  # Always too small for complex queries
 ```
 
-✅ **Right**: Test and tune
+ **Right**: Test and tune
 ```python
 # A/B test different sizes
 for size in [200, 400, 600]:
@@ -586,24 +586,24 @@ for size in [200, 400, 600]:
 ```
 
 ### 3. No Overlap
-❌ **Wrong**: Hard boundaries
+ **Wrong**: Hard boundaries
 ```python
 chunks = [text[i:i+500] for i in range(0, len(text), 500)]
 ```
 
-✅ **Right**: Overlapping chunks
+ **Right**: Overlapping chunks
 ```python
 RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 ```
 
 ### 4. Ignoring Tokens
-❌ **Wrong**: Character-based limits
+ **Wrong**: Character-based limits
 ```python
 if len(chunk) > 500:  # Characters don't map to tokens
     split_chunk(chunk)
 ```
 
-✅ **Right**: Token-based limits
+ **Right**: Token-based limits
 ```python
 if count_tokens(chunk) > 500:
     split_chunk(chunk)
